@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+body{
+    overflow-x: hidden;
+}
+#page1{
+    height: 100vh;
+    width: 100%;
+    background-color: #e9faa2;
+}
+#page2{
+    height: 100vh;
+    width: 100%;
+    background-color: #6ee8e8;
+}
+#page3{
+    height: 100vh;
+    width: 100%;
+    background-color: #f7a278;
+}
+
+#page2 h1{
+    font-size: 40vw;
+    text-transform: uppercase;
+    font-weight: 600;
+}
