@@ -22,25 +22,93 @@ gsap.from("#page1 h1", {
   duration: 1,
 });
 gsap.to("#page1 #box", {
-    x: 300,
-    yoyo: true,
-    repeat: -1,
-    duration: 2,
+  x: 300,
+  yoyo: true,
+  repeat: -1,
+  duration: 2,
 });
 
-gsap.from("#page3 h2",{
-    x: -1300,
-    scrollTrigger:{
-        trigger: "#page3",
-        scrub: true,
-        end: "top 0%",
-    }
-})
-gsap.from("#page3 p",{
-    x: 1300,
-    scrollTrigger:{
-        trigger: "#page3",
-        scrub: true,
-        end: "top 0%",
-    }
-})
+gsap.from("#page4 h2", {
+  x: -1300,
+  scrollTrigger: {
+    trigger: "#page4",
+    scrub: true,
+    end: "top 0%",
+  },
+});
+gsap.from("#page4 p", {
+  x: 1300,
+  scrollTrigger: {
+    trigger: "#page4",
+    scrub: true,
+    end: "top 0%",
+  },
+});
+
+var path = "M 10 100 Q 775 100 1530 100";
+var finalPath = "M 10 100 Q 775 100 1530 100";
+
+var string = document.querySelector("#page3");
+string.addEventListener("mousemove", function (dets) {
+  path = `M 10 100 Q ${dets.offsetX} ${dets.offsetY} 1530 100`;
+  gsap.to("#page3 svg path", {
+    attr: {
+      d: path,
+    },
+    duration: 0.2,
+    ease: "power3.Out",
+  });
+  gsap.to("#cursor", {
+    x: dets.offsetX,
+    y: dets.offsetY,
+    duration: 1,
+    ease: "back.out",
+  });
+});
+
+string.addEventListener("mouseleave", function () {
+  gsap.to("#page3 svg path", {
+    attr: {
+      d: finalPath,
+    },
+    duration: 0.3,
+    ease: "bounce.out",
+  });
+});
+let cursor2 = document.querySelector("#cursor2");
+let page5 = document.querySelector("#page5");
+let image = document.querySelector("#image");
+
+page5.addEventListener("mousemove", function (dets) {
+  gsap.to(cursor2, {
+    x: dets.x,
+    y: dets.y,
+    duration: 0.6,
+    ease: "back.out",
+    opacity: 1,
+  });
+});
+page5.addEventListener("mouseleave", function () {
+  gsap.to("#cursor2", {
+    opacity: 0,
+    duration: 0.6,
+    ease: "back.out",
+  });
+});
+image.addEventListener("mouseenter", function (dets) {
+  cursor2.innerHTML = "View More";
+  gsap.to(cursor2, {
+    scale: 4,
+    backgroundColor: "rgba(255, 255, 255, 0.281)",
+    ease: "back.out",
+  });
+});
+image.addEventListener("mouseleave", function (dets) {
+  cursor2.innerHTML = "";
+  console.log("leave");
+  gsap.to(cursor2, {
+    scale: 1,
+    ease: "back.out",
+    backgroundColor: "white",
+  });
+});
