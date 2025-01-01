@@ -6,7 +6,6 @@ gsap.to("#page2 h1", {
     start: "top 0%",
     end: "top -200%",
     scrub: true,
-    markers: true,
     pin: true,
   },
 });
@@ -14,7 +13,6 @@ gsap.to("#page2 h1", {
 let tl = gsap.timeline();
 tl.from("#nav", { y: -100, opacity: 0, duration: 0.8 });
 tl.from("#nav h1", { y: -100, opacity: 0, duration: 0.5 });
-tl.from("#nav ul li", { y: -100, opacity: 0, duration: 0.7, stagger: 0.3 });
 
 gsap.from("#page1 h1", {
   y: 800,
@@ -111,4 +109,34 @@ image.addEventListener("mouseleave", function (dets) {
     ease: "back.out",
     backgroundColor: "white",
   });
+});
+
+let tl2 = gsap.timeline();
+let menuIcon = document.querySelector("nav i");
+let crossIcon = document.querySelector("#full i");
+tl2.to("#full", {
+  right: 0,
+  duration: 0.5,
+});
+
+tl2.from("#full h4", {
+  x: 150,
+  duration: 0.4,
+  stagger: 0.1,
+  opacity: 0,
+});
+
+tl2.from("#full i", {
+  opacity: 0,
+});
+
+tl2.pause();
+
+menuIcon.addEventListener("click", function () {
+  console.log("clicked");
+  tl2.play();
+});
+
+crossIcon.addEventListener("click", function () {
+  tl2.reverse();
 });

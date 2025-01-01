@@ -2,19 +2,22 @@
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
+  overflow-x: hidden;
 }
 body {
   overflow-x: hidden;
-  margin-top: 8vh;
-  background-color: #71a9f7;
 }
 #page1 {
   height: 100vh;
   width: 100%;
-  background-color: #71a9f7;
+  /* background-color: #71a9f7; */
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url(https://images.unsplash.com/photo-1498496294664-d9372eb521f3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 #page2 {
   height: 100vh;
@@ -43,35 +46,58 @@ body {
   left: 0;
   width: 100%;
   height: 8vh;
-  background-color: #c6d8ff;
   z-index: 1000;
   justify-content: space-between;
   display: flex;
   align-items: center;
+  padding: 40px 20px;
+  box-sizing: border-box;
 }
 #nav h1 {
-  margin-left: 20px;
+  color: white;
+  font-size: 30px;
 }
-#nav ul {
-  display: flex;
-  list-style: none;
+#nav i {
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
 }
-#nav ul li {
-  margin: 0px 10px;
+#full {
+  height: 100vh;
+  width: 40%;
+  background-color: rgba(255, 255, 255, 0.348);
+  position: absolute;
+  top: 0;
+  right: -100%;
+  backdrop-filter: blur(10px);
+  z-index: 2000;
+  padding: 150px 60px;
+  box-sizing: border-box;
 }
-#nav ul li a {
-  text-decoration: none;
-  color: rgb(72, 69, 69);
-  font-size: 14px;
-  font-weight: 600;
+#full h4 {
+  font-size: 50px;
+  color: black;
+  margin-bottom: 20px;
+  font-weight: 500;
+  margin-bottom: 5px;
 }
-
+#full i{
+    position: absolute;
+    top: 5%;
+    right: 10%;
+    background-color:  white;
+    border-radius: 50%;
+    padding: 5px;
+    font-size: 20px;
+    font-weight: 800;
+}
 #page1 div {
   display: flex;
 }
 #page1 div h1 {
   font-family: "Roboto Mono", serif;
   font-size: 32vw;
+  color: rgb(85, 120, 175);
 }
 
 #page4 div {
@@ -156,10 +182,10 @@ body {
   height: 100%;
   object-fit: cover;
 }
-#overlay{
-    width: 100%;
-    height: 100%;
-    background-color: transparent;
-    position: absolute;
-    z-index: 10;
+#overlay {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  position: absolute;
+  z-index: 10;
 }
